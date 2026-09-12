@@ -6,6 +6,12 @@
 
 网站通过 GitHub Pages 公开发布。
 
+侧栏的“选择模组”可切换《我的饥荒》与《应用能源》Wiki。模组目录、版本、搜索和翻译文件分别维护；链接参数 `?mod=applied-energistics` 可直接打开应用能源。
+
+- `app/mods.json`：模组名称、版本、作者、介绍和快捷章节。
+- `content/mods/applied-energistics/`：应用能源中文章节及 `translations/en/` 英文版本。
+- 应用能源介绍依据该模组的 `modinfo.lua`、`scripts/txk_ae2/core/strings.lua`、`recipes.lua` 和存储动作整理，未发布本地模组源码或本机路径。
+
 支持简体中文、英文与社区翻译。侧栏可切换语言或添加译文；新语言审核通过后自动出现在菜单中。未翻译章节回退英文。见 [翻译说明](TRANSLATING.md)。
 
 ## 内容维护

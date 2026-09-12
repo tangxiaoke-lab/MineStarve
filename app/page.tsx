@@ -4,17 +4,20 @@ import { flushSync } from 'react-dom';
 import { BookOpen, Search, ArrowUpRight, Compass, Package, Sparkles, Skull, Shield, Menu, X, ChevronRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { SidebarProvider, Sidebar, SidebarContent } from '@/components/ui/sidebar';
-import { languages, localizedChapters } from './wiki-data';
+import { mods, getMod, getLanguages, localizedChapters } from './wiki-data';
 import { ChapterBody } from './chapter-body';
 import { TranslationPanel } from './translation-panel';
-import { initialLanguage, interfaceText, languageName, repository, translationUrl, type TextKey } from './i18n';
+import { initialMod, initialLanguage, interfaceText, languageName, repository, translationUrl, type TextKey } from './i18n';
 const icons = [Package, Package, Sparkles, BookOpen, Shield, Package, Compass, Skull, Skull, BookOpen];
 export default function Home() {
+  const [modId, setModId] = useState(initialMod);
+  const mod = getMod(modId);
+  const languages = getLanguages(modId);
   const [locale, setLocale] = useState(initialLanguage);
   const [query, setQuery] = useState('');
   const [menu, setMenu] = useState(false);
-  const text = interfaceText(locale);
-  const chapters = localizedChapters(locale);
+  const text = interfaceText(locale, modId);
+  const chapters = localizedChapters(locale, modId);
   const translatedCount = chapters.filter(chapter => !chapter.translationMissing).length;
   const t = (key: TextKey, params: Record<string, string | number> = {}) => text[key].replace(/\{(\w+)\}/g, (match, name) => String(params[name] ?? match));
   const normalized = query.trim().toLocaleLowerCase();
@@ -24,9 +27,10 @@ export default function Home() {
     document.title = `${text.brand} Wiki · ${text.reference}`;
     const url = new URL(window.location.href);
     url.searchParams.set('lang', locale);
+    url.searchParams.set('mod', modId);
     window.history.replaceState(null, '', url);
     try { localStorage.setItem('minestarve-language', locale); } catch { /* Storage is optional. */ }
-  }, [locale, text.brand, text.reference]);
+  }, [locale, modId, text.brand, text.reference]);
   function navigate(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
     const hash = event.currentTarget.hash;
@@ -39,16 +43,27 @@ export default function Home() {
     url.hash = hash;
     window.history.replaceState(null, '', url);
   }
-  const quick = [
+  function switchMod(id: string) {
+    const nextLanguages = getLanguages(id);
+    setModId(id);
+    if (!nextLanguages.includes(locale)) setLocale(locale.startsWith('zh') ? 'zh-CN' : 'en');
+    setQuery(''); setMenu(false);
+    const url = new URL(window.location.href);
+    url.hash = ''; url.searchParams.set('mod', id);
+    window.history.replaceState(null, '', url);
+    window.scrollTo({ top: 0 });
+  }
+  const quick = modId === 'minestarve' ? [
     { id: 'enchanting', icon: 'book', category: text.growth, hint: text.enchantHint },
     { id: 'totem', icon: 'totem', category: text.relics, hint: text.totemHint },
     { id: 'recipes', icon: 'bucket', category: text.crafting, hint: text.recipeHint },
-  ];
+  ] : mod.quick.map(id => ({ id, icon: '', category: text.reference, hint: '' }));
   return <SidebarProvider className="wiki-shell">
     <a className="skip-link" href="#content">{text.skip}</a>
     <Sidebar collapsible="none" className={`wiki-sidebar ${menu ? 'mobile-open' : ''}`}>
+      <div className="mod-controls"><label htmlFor="wiki-mod">{text.chooseMod}</label><select id="wiki-mod" value={modId} onChange={event => switchMod(event.target.value)}>{mods.map(item => <option key={item.id} value={item.id}>{item.name[locale.startsWith('zh') ? 'zh' : 'en']}</option>)}</select></div>
       <a className="brand" href="#" onClick={navigate}><BookOpen size={28}/><div>{text.brand}<span>{text.wiki}</span></div></a>
-      <div className="sidebar-edition"><span className="live-dot"/> {text.version} 1.4.5</div>
+      <div className="sidebar-edition"><span className="live-dot"/> {text.version} {mod.version}</div>
       <div className="language-controls">
         <label htmlFor="wiki-language">{text.language} / Language</label>
         <select id="wiki-language" value={locale} onChange={event => { setLocale(event.target.value); setQuery(''); }}>
@@ -64,26 +79,26 @@ export default function Home() {
     <div className="wiki-body">
       <header className="topbar"><button className="menu-toggle" onClick={()=>setMenu(!menu)} aria-label={menu?text.closeMenu:text.openMenu} aria-expanded={menu}>{menu?<X/>:<Menu/>}</button><span className="breadcrumb">{text.guide} <ChevronRight size={14}/> <strong>{text.reference}</strong></span><label className="search"><Search size={18}/><Input aria-label={text.search} placeholder={text.searchHint} value={query} onChange={event=>setQuery(event.target.value)}/>{query && <button aria-label={text.clear} onClick={()=>setQuery('')}><X size={16}/></button>}</label></header>
       <main id="content">
-        <div className="intro"><div className="eyebrow">{text.eyebrow}</div><h1>{text.brand}<span className="title-tag">{text.encyclopedia}</span></h1><p>{text.intro}</p><div className="intro-meta"><span>{text.version} 1.4.5</span><span>{t('chapterCount', { count: chapters.length })}</span><span>{text.facts}</span></div><div className="experience-track" aria-hidden="true"><span/></div></div>
-        {!normalized && <div className="quick-links">{quick.map(item => <a key={item.id} href={`#${item.id}`} onClick={navigate}><span className={`item-sprite item-${item.icon}`} aria-hidden="true"/><div><small>{item.category}</small><strong>{chapters.find(chapter => chapter.id === item.id)?.title}</strong><span>{item.hint}</span></div><ArrowUpRight/></a>)}</div>}
+        <div className="intro"><div className="eyebrow">{text.eyebrow}</div><h1>{text.brand}<span className="title-tag">{text.encyclopedia}</span></h1><p>{text.intro}</p><div className="intro-meta"><span>{text.version} {mod.version}</span><span>{t('chapterCount', { count: chapters.length })}</span><span>{text.facts}</span></div><div className="experience-track" aria-hidden="true"><span/></div></div>
+        {!normalized && <div className="quick-links">{quick.map(item => <a key={item.id} href={`#${item.id}`} onClick={navigate}><span className={item.icon ? `item-sprite item-${item.icon}` : "mod-topic-icon"} aria-hidden="true">{!item.icon && <Package/>}</span><div><small>{item.category}</small><strong>{chapters.find(chapter => chapter.id === item.id)?.title}</strong><span>{item.hint}</span></div><ArrowUpRight/></a>)}</div>}
         <details id="contribute" className="contribution-guide">
           <summary>{text.helpTitle}</summary>
           <p>{text.helpBody}</p><p>{text.submitReminder}</p>
           <a href={`${repository}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noreferrer">{text.editGuide}</a>
         </details>
-        <TranslationPanel text={text} chapters={chapters}/>
+        <TranslationPanel key={modId} text={text} chapters={chapters} modId={modId}/>
         <div className="article-layout"><div className="chapters">
           {normalized && <p className="search-result" role="status">{t('results', { count: visible.length, query })}<button onClick={()=>setQuery('')}>{text.showAll}</button></p>}
           {visible.length === 0 && <div className="no-results"><Search size={30}/><h2>{text.noResults}</h2><p>{text.trySearch}</p></div>}
           {visible.map(chapter => <section id={chapter.id} key={chapter.id} className="chapter">
             <div className="chapter-heading">
               <span>{String(chapters.indexOf(chapter)+1).padStart(2,'0')}</span><h2 lang={chapter.sourceLocale} dir="auto">{chapter.title}</h2>
-              <a className="chapter-edit" href={translationUrl(locale, chapter.filename)} target="_blank" rel="noreferrer" aria-label={`${chapter.translationMissing ? text.translateChapter : text.edit}: ${chapter.title}`}>{chapter.translationMissing ? text.translateChapter : text.edit}</a>
+              <a className="chapter-edit" href={translationUrl(locale, chapter.filename, modId)} target="_blank" rel="noreferrer" aria-label={`${chapter.translationMissing ? text.translateChapter : text.edit}: ${chapter.title}`}>{chapter.translationMissing ? text.translateChapter : text.edit}</a>
               <a className="chapter-anchor" href={`#${chapter.id}`} aria-label={`${text.anchor} ${chapter.title}`}>#</a>
             </div>
             {chapter.translationMissing && <p className="translation-fallback">{text.translationFallback}</p>}
             <div lang={chapter.sourceLocale} dir="auto"><p className="chapter-summary">{chapter.summary}</p>
-              <ChapterBody body={chapter.body} recipes={chapter.id === 'recipes'} mechanicsLabel={text.mechanics}/>
+              <ChapterBody body={chapter.body} recipes={modId === 'minestarve' && chapter.id === 'recipes'} mechanicsLabel={text.mechanics}/>
             </div>
           </section>)}
         </div></div>

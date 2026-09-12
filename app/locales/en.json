@@ -1,4 +1,5 @@
 {
+  "chooseMod": "Choose a mod",
   "brand": "MineStarve", "wiki": "Mod player Wiki", "version": "Version", "contents": "Contents",
   "game": "Don't Starve Together", "author": "Mod authors: Tangxiaoke, Djr", "updated": "Updated 9 September 2026",
   "contribute": "Contribute", "skip": "Skip to the guide", "closeMenu": "Close contents", "openMenu": "Open contents",
@@ -9,7 +10,7 @@
   "helpTitle": "Help improve the Wiki",
   "helpBody": "Choose Edit with GitHub on a chapter and sign in to edit its document. Contributors create a personal fork if prompted; repository owners edit directly without forking. Save your changes and open a pull request. The page updates after approval.",
   "submitReminder": "Saving to your own fork does not submit a review request. Complete Create pull request.", "editGuide": "Editing instructions ↗",
-  "results": "{count} chapters matching “{query}”.", "showAll": "Show all", "noResults": "No matching chapters", "trySearch": "Try enchanting, bookshelves, milk or curses.",
+  "results": "{count} chapters matching “{query}”.", "showAll": "Show all", "noResults": "No matching chapters", "trySearch": "Try an item name or a gameplay keyword.",
   "edit": "Edit with GitHub ↗", "anchor": "Link to", "mechanics": "Mechanics", "top": "Back to top ↑",
   "language": "Language", "addTranslation": "Add a translation", "translateTitle": "Translate the Wiki", "languageCode": "Target language code", "chapter": "Chapter",
   "translationSteps": "Choose a language code and chapter. Read the source, then sign in to GitHub to create or edit the translation. Submit a pull request for review. One approved chapter is enough to add a new language to the menu.",

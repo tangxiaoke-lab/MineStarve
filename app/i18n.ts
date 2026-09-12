@@ -1,18 +1,22 @@
 import en from './locales/en.json';
 import zh from './locales/zh-CN.json';
-import { chapterSets, languages } from './wiki-data';
+import { getChapterSets, getLanguages, getMod, defaultMod } from './wiki-data';
 
-const interfaces = import.meta.glob('../content/translations/*/ui.json', { import: 'default', eager: true }) as Record<string, Partial<typeof en>>;
+const interfaces = import.meta.glob('../content/**/ui.json', { import: 'default', eager: true }) as Record<string, Partial<typeof en>>;
 export type TextKey = keyof typeof en;
-export function interfaceText(locale: string) {
-  return { ...(locale.toLowerCase().startsWith('zh') ? zh : en), ...interfaces[`../content/translations/${locale}/ui.json`] };
+export function interfaceText(locale: string, modId = defaultMod) {
+  const mod = getMod(modId);
+  const language = locale.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+  return { ...(language === 'zh' ? zh : en), brand: mod.name[language], intro: mod.intro[language], author: mod.author[language], updated: mod.updated[language], ...interfaces[`../${mod.contentRoot}/translations/${locale}/ui.json`] };
 }
 export function languageName(locale: string) {
   if (locale === 'zh-CN') return '简体中文';
   if (locale === 'en') return 'English';
   return new Intl.DisplayNames([locale], { type: 'language' }).of(locale) || locale;
 }
+export function initialMod() { return getMod(new URL(window.location.href).searchParams.get('mod') || defaultMod).id; }
 export function initialLanguage() {
+  const languages = getLanguages(initialMod());
   const requested = new URL(window.location.href).searchParams.get('lang');
   let saved: string | null = null;
   try { saved = localStorage.getItem('minestarve-language'); } catch { /* Storage is optional. */ }
@@ -29,9 +33,10 @@ export function canonicalLanguage(value: string) {
   } catch { return ''; }
 }
 export const repository = 'https://github.com/tangxiaoke-lab/MineStarve';
-export function translationUrl(locale: string, filename: string) {
-  const existing = chapterSets[locale]?.find(chapter => chapter.filename === filename);
-  const path = locale === 'zh-CN' ? `content/${filename}` : `content/translations/${locale}/${filename}`;
+export function translationUrl(locale: string, filename: string, modId = defaultMod) {
+  const existing = getChapterSets(modId)[locale]?.find(chapter => chapter.filename === filename);
+  const root = getMod(modId).contentRoot;
+  const path = locale === 'zh-CN' ? `${root}/${filename}` : `${root}/translations/${locale}/${filename}`;
   if (existing) return `${repository}/edit/main/${path}`;
   const params = new URLSearchParams({ filename: path, value: '# TRANSLATION_DRAFT\n\nTRANSLATION_DRAFT\n\nTRANSLATION_DRAFT\n' });
   return `${repository}/new/main?${params}`;

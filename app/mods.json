@@ -1,0 +1,18 @@
+[
+  {
+    "id": "minestarve", "contentRoot": "content", "version": "1.4.5",
+    "name": { "zh": "我的饥荒", "en": "MineStarve" },
+    "intro": { "zh": "《我的饥荒》的物品、配方、附魔与生物资料。", "en": "Items, recipes, enchantments and creatures in MineStarve." },
+    "author": { "zh": "模组作者 唐小可、Djr", "en": "Mod authors: Tangxiaoke, Djr" },
+    "updated": { "zh": "攻略更新 2026 年 9 月 9 日", "en": "Updated 9 September 2026" },
+    "quick": ["enchanting", "totem", "recipes"]
+  },
+  {
+    "id": "applied-energistics", "contentRoot": "content/mods/applied-energistics", "version": "26.09.05.1",
+    "name": { "zh": "应用能源", "en": "Applied Energistics" },
+    "intro": { "zh": "把容器、数字存储和自动化连接起来：应用能源的终端、ME 存储元件与功能卡资料。", "en": "Connect containers, digital storage and automation: terminals, ME storage cells and expansion cards in Applied Energistics." },
+    "author": { "zh": "模组作者 唐小可", "en": "Mod author: Tangxiaoke" },
+    "updated": { "zh": "攻略更新 2026 年 9 月 13 日", "en": "Updated 13 September 2026" },
+    "quick": ["storage", "automation", "recipes"]
+  }
+]

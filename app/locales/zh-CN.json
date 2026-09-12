@@ -1,4 +1,5 @@
 {
+  "chooseMod": "选择模组",
   "brand": "我的饥荒", "wiki": "模组玩家 Wiki", "version": "版本", "contents": "攻略目录",
   "game": "饥荒联机版", "author": "模组作者 唐小可、Djr", "updated": "攻略更新 2026 年 9 月 9 日",
   "contribute": "参与编辑", "skip": "跳转到攻略正文", "closeMenu": "关闭目录", "openMenu": "打开目录",
@@ -9,7 +10,7 @@
   "helpTitle": "参与完善 Wiki",
   "helpBody": "点击章节旁的“登录后编辑”，使用 GitHub 账号登录后修改文档。其他编辑者首次编辑时按提示创建个人副本；仓库所有者无需 Fork，直接编辑即可。保存修改后提交审核申请（Pull Request）。审核通过后，页面才会更新。",
   "submitReminder": "只保存到个人副本不会进入审核，请继续完成“Create pull request”。", "editGuide": "查看编辑说明 ↗",
-  "results": "找到 {count} 个包含“{query}”的章节。", "showAll": "显示全部", "noResults": "没有找到相关攻略", "trySearch": "试试“附魔”“书架”“奶桶”或“七咒”。",
+  "results": "找到 {count} 个包含“{query}”的章节。", "showAll": "显示全部", "noResults": "没有找到相关攻略", "trySearch": "试试物品名称或玩法关键词。",
   "edit": "登录后编辑 ↗", "anchor": "链接到", "mechanics": "机制说明", "top": "回到顶部 ↑",
   "language": "语言", "addTranslation": "添加翻译", "translateTitle": "翻译 Wiki", "languageCode": "目标语言代码", "chapter": "章节",
   "translationSteps": "选择语言代码和章节，查看原文后登录 GitHub 创建或编辑译文，再提交审核申请。只翻译一个章节也可以；审核通过后，新语言会自动出现在菜单中。",

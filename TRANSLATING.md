@@ -20,6 +20,10 @@ Reading is public. Sign in to GitHub to submit translations. Tangxiaoke reviews 
 
 ## 目录与回退 / Files and fallbacks
 
+先在 Wiki 侧栏选择模组，编辑和翻译入口会使用该模组的文档目录。《应用能源》的文档根目录为 `content/mods/applied-energistics/`，译文位于其 `translations/<language-code>/` 下；不同模组的译文不会混用。
+
+Choose a mod in the Wiki sidebar first. Editing and translation links target that mod's content directory. Applied Energistics uses `content/mods/applied-energistics/`, with translations under its `translations/<language-code>/` subdirectory. Translations are kept separate for each mod.
+
 - 简体中文原文：`content/01-inventory.md` 等文件。
 - English baseline: `content/translations/en/01-inventory.md` and the other nine chapters.
 - 新译文 / New translation: `content/translations/<language-code>/<original-filename>.md`.
