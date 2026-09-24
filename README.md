@@ -1,6 +1,6 @@
 # 我的饥荒模组 Wiki
 
-《我的饥荒》1.4.5 玩家攻略网站，采用《我的世界》物品栏风格。包含 10 个资料章节、关键词搜索、配方与附魔速查，支持手机阅读和多语言翻译。
+《我的饥荒》1.5.1 玩家攻略网站，采用《我的世界》物品栏风格。包含 15 个资料章节、关键词搜索、配方与附魔速查，支持手机阅读和多语言翻译。
 
 [打开在线 Wiki](https://tangxiaoke-lab.github.io/MineStarve/) · [源码仓库](https://github.com/tangxiaoke-lab/MineStarve)
 
@@ -42,6 +42,10 @@
 - `scripts/core_minecraft_inv_hud/features/totem_content.lua`：首次出生赠送与猪王兑换。
 - `scripts/components/mc_milkable.lua`、`scripts/prefabs/milk_bucket.lua`：挤奶和饮用。
 - `scripts/core_minecraft_inv_hud/features/rowboat_content.lua`：划船控制与箱船储物。
+- `scripts/mc_mining_defs.lua`、`scripts/components/mc_miningmachine.lua`：矿石等级、矿洞与采矿机。
+- `scripts/components/mc_smelter.lua`、`scripts/components/mc_brewer.lua`：冶炼和炼药流程。
+- `scripts/mc_tool_defs.lua`、`scripts/mc_upgrade_defs.lua`：装备配方阶梯与镶嵌。
+- `scripts/mc_bossrush_tuning.lua`、`scripts/components/dd_islandchallenge.lua`、`scripts/components/dd_pixelgrowth.lua`：幽暗之域挑战与像素侵蚀。
 
 ## 开发与构建
 

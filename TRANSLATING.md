@@ -25,7 +25,7 @@ Reading is public. Sign in to GitHub to submit translations. Tangxiaoke reviews 
 Choose a mod in the Wiki sidebar first. Editing and translation links target that mod's content directory. Applied Energistics uses `content/mods/applied-energistics/`, with translations under its `translations/<language-code>/` subdirectory. Translations are kept separate for each mod.
 
 - 简体中文原文：`content/01-inventory.md` 等文件。
-- English baseline: `content/translations/en/01-inventory.md` and the other nine chapters.
+- English baseline: `content/translations/en/01-inventory.md` and the other fourteen chapters.
 - 新译文 / New translation: `content/translations/<language-code>/<original-filename>.md`.
 - 语言代码使用规范大小写，如 `pt-BR`、`zh-Hant`，同一种语言不要重复建目录。
 - Use canonical language-code casing, such as `pt-BR` and `zh-Hant`. Do not create duplicate folders for the same language.

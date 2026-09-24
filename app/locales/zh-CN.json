@@ -1,10 +1,10 @@
 {
   "chooseMod": "选择模组",
   "brand": "我的饥荒", "wiki": "模组玩家 Wiki", "version": "版本", "contents": "攻略目录",
-  "game": "饥荒联机版", "author": "模组作者 唐小可、Djr", "updated": "攻略更新 2026 年 9 月 9 日",
+  "game": "饥荒联机版", "author": "模组作者 唐小可、Djr", "updated": "攻略更新 2026 年 9 月 25 日",
   "contribute": "参与编辑", "skip": "跳转到攻略正文", "closeMenu": "关闭目录", "openMenu": "打开目录",
   "guide": "玩家指南", "reference": "攻略与资料", "search": "搜索攻略", "searchHint": "搜索物品、附魔、玩法…", "clear": "清空搜索",
-  "eyebrow": "饥荒联机版 · 模组生存手册", "encyclopedia": "攻略百科", "intro": "《我的饥荒》的物品、配方、附魔与生物资料。",
+  "eyebrow": "饥荒联机版 · 模组生存手册", "encyclopedia": "攻略百科", "intro": "《我的饥荒》的物品、装备、采矿、药水、附魔与幽暗之域资料。",
   "chapterCount": "{count} 个资料章节", "facts": "物品规则与数值速查", "growth": "装备成长", "relics": "遗物效果", "crafting": "制作配方",
   "enchantHint": "书架、硝石与等级消耗", "totemHint": "装备在遗物栏才会生效", "recipeHint": "材料数量与制作条件",
   "helpTitle": "参与完善 Wiki",

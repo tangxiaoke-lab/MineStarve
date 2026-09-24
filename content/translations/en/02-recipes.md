@@ -8,7 +8,7 @@ Materials, technology requirements and additional conditions for the main recipe
 | Book (Pig Skin binding) | Papyrus ×3 + Pig Skin ×1 | Science Machine tier; Refine category |
 | Book (Tentacle Spots binding) | Papyrus ×3 + Tentacle Spots ×1 | Science Machine tier; both recipes produce the same book |
 | Oak Boat | Boards ×3 + Tentacle Spots ×1 | Seafaring tier 1; Seafaring category |
-| Oak Chest Boat | Boards ×6 + Tentacle Spots ×1 | Seafaring tier 1; Seafaring category |
+| Oak Chest Boat | Boards ×10 + Tentacle Spots ×1 | Seafaring tier 1; Seafaring category |
 | Maxwell's Magician's Chest | Silk ×1 + Boards ×4 + Nightmare Fuel ×9 | Seven Curses active; no ordinary technology required |
 | Soul Stitching | Life Giving Amulet ×1 + Nightmare Fuel ×4 | Seven Curses active, with a Soul Fracture; near an Ancient tier 2 station |
 
@@ -22,3 +22,5 @@ Materials, technology requirements and additional conditions for the main recipe
 | Ring of Seven Curses | Granted and bound automatically when Enigmatic Legacy is enabled. |
 
 > Soul Stitching immediately repairs one Soul Fracture stack; it does not produce a stored potion. Both ordinary book recipes produce the same item, so they do not count as two different book types for a bookshelf.
+
+See “Minerals and Machines,” “Equipment Upgrades,” and “Potion Brewing” below for mineral equipment, the mining machine, Nightmare Fuel Generator, Oven, and Brewing Stand recipes.

@@ -5,7 +5,7 @@ Small boats with two oars provide ocean travel. Chest boats add storage. Both mu
 | Boat | Health | Materials and features |
 | --- | --- | --- |
 | Oak Boat | 800 | Boards ×3 + Tentacle Spots ×1; basic boat with two oars |
-| Oak Chest Boat | 1,000 | Boards ×6 + Tentacle Spots ×1; includes 12 storage slots |
+| Oak Chest Boat | 1,000 | Boards ×10 + Tentacle Spots ×1; includes 12 storage slots |
 
 ## Rowing
 

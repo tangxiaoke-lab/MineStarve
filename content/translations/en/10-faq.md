@@ -29,3 +29,11 @@ Hold an empty Bucket in your hand. The target must be a living adult Beefalo tha
 ## Why do monsters spawn in a lit surface camp?
 
 Surface night spawning is not restricted by light levels. Cave spawn locations must be sufficiently dark.
+
+## Why can't heated minerals be hammered into ingots?
+
+Place a stack of at least 3 Gold Nuggets, Raw Copper or Raw Iron on the ground, keep it hot enough and hammer it repeatedly. Raw Gold must first be processed into Gold Nuggets. Rain, water or cooling interrupts the heat process.
+
+## How can I reduce pixel corruption in the Deep Dark?
+
+After Charlie's wave affects you, remaining on the island keeps building corruption. Leaving lowers it by one level every 30 seconds. Reaching the maximum level is fatal; defeating the bosses or opening the rift does not immediately clear a player's corruption.
