@@ -6,7 +6,15 @@ Use the Brewing Stand to turn Water Bottles into Awkward Potions, then add ingre
 
 The Brewing Stand costs Cut Stone ×3, Gold Nuggets ×2 and a Red Gem ×1 at an Alchemy Engine. One Mite Gland fuels 20 batches and is not spent while idle. Each batch takes about 20 seconds; one ingredient can process up to three bottles at once.
 
-Craft 3 Glass Bottles from 1 Moon Glass at a Science Machine. Combine a Glass Bottle with Ice to make a Water Bottle. Add Foliage to make an Awkward Potion, then add one of these ingredients:
+The full path from an empty bottle to the base potion is below. One brewing ingredient can process up to three bottles at once.
+
+| Product | Ingredients | Method |
+| --- | --- | --- |
+| Glass Bottles ×3 | Moon Glass ×1 | Craft near a Science Machine |
+| Water Bottle | Glass Bottle ×1 + Ice ×1 | Craft without a technology station |
+| Awkward Potion | Water Bottle + Foliage | Brew in the Brewing Stand |
+
+Add one of these ingredients to an Awkward Potion in the Brewing Stand:
 
 | Ingredient | Potion | Main effect |
 | --- | --- | --- |
@@ -25,8 +33,16 @@ Craft 3 Glass Bottles from 1 Moon Glass at a Science Machine. Combine a Glass Bo
 
 ## Extended, upgraded and splash variants
 
-Add Redstone to a compatible level I potion to double its duration. Add Moon Glass to make a compatible level II potion. Extended and level II versions are separate paths and cannot be stacked on the same bottle. Add Gunpowder to a drinkable potion to create a splash potion with a radius of about 4.
+| Brewing ingredient | Input potion | Product |
+| --- | --- | --- |
+| Redstone | Level I Swiftness, Strength, Poison, Regeneration, Fire Resistance, Night Vision, Weakness, Turtle Master, Water Breathing or Luck | Corresponding extended potion with double duration |
+| Moon Glass | Level I Swiftness, Strength, Harming, Poison, Regeneration, Turtle Master or Luck | Corresponding level II potion |
+| Gunpowder | Any drinkable potion, including Awkward Potions and extended or upgraded finished potions | Corresponding splash potion with a radius of about 4 |
 
-The Brewing Stand can also process Charcoal into Coal, with a 33% success chance per piece. This consumes a fuel batch, and a failed attempt still consumes the Charcoal.
+Extended and level II versions are separate paths and cannot be stacked on the same bottle. Splash potions can also be brewed further with ingredients allowed for their base type.
+
+| Other brewing | Product and cost |
+| --- | --- |
+| Put Charcoal in the Brewing Stand | 33% chance of Coal; consumes a fuel batch and the Charcoal even on failure |
 
 > Instant Healing and Harming have no duration. Not every potion has an extended or level II variant.
